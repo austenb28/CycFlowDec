@@ -21,12 +21,8 @@ Place `CycFlowDec.py` in `~/python_modules`. Update your `~/.bashrc` to include
 Include `from CycFlowDec import CycFlowDec` in your Python script. See definitions and example sections for specific usage hints.
 
 # Definitions
-`CycFlowDec(F,state,tol)`
-
-**Desciption**
+## `CycFlowDec(F,state,tol)`
 Constructor of the CycFlowDec class.
-
-**Arguments**
 
 `F`: NumPy (*N* x *N*) array. Flow matrix of the network to decycle, where *N* is the number of network nodes.  *F*[*m*,*n*] should correspond to the flow from node *n* to node *m*.
 
@@ -34,30 +30,17 @@ Constructor of the CycFlowDec class.
 
 `tol`: Float. The minimum contribution tolerance for walks to further percolate the network. Should be on the range \[0,1\]. For small networks (*N* ~< 6) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
 
-`CycFlowDec.run(burnin,nstep)`
-
-**Description**
-
+## `CycFlowDec.run(burnin,nstep)`
 Class method for running cyclic flow decomposition on `F`. Stores cycles with weights in `CycFlowDec.cycles`.
-
-**Arguments**
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
 `nstep`: Integer. Number of steps to log cycles. The lower the better (e.g. 1. More may be required if burnin is too small. If the network only contains even cycles, then 2).
 
-`CycFlowDec.scale_cycles()`
-
-**Description**
-
+## `CycFlowDec.scale_cycles()`
 Scales cycle weights to flow values using the total network flow.
 
-`CycFlowDec.calc_MRE(tol)`
-
-**Description**
-
+## `CycFlowDec.calc_MRE(tol)`
 Returns the mean relative error (MRE) of the decycled network flows with respect to the original network flows. Scales cycles weights to flow values with `CycFlowDec.scale_cycles()` if it hadn't been called previously.
-
-**Arguments**
 
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
