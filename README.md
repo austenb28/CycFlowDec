@@ -34,6 +34,7 @@ Constructor of the CycFlowDec class.
 Class method for running cyclic flow decomposition on `F`. Stores cycles with weights in `CycFlowDec.cycles`.
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
+
 `nstep`: Integer. Number of steps to log cycles. The lower the better (e.g. 1. More may be required if burnin is too small. If the network only contains even cycles, then 2).
 
 ## `CycFlowDec.scale_cycles()`
