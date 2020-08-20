@@ -27,7 +27,7 @@ while j < n_points:
   MREs.append(myCycFlowDec.calc_MRE(0))
   j += 1
 
-print('Cycle   Flow)
+print('Cycle   Flow')
 for cycle in myCycFlowDec.keys():
   print('{:s}: {:.2f}'.format(
     str(cycle),
