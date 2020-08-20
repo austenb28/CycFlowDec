@@ -45,5 +45,8 @@ Returns the mean relative error (MRE) of the decycled network flows with respect
 
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
+# Example
+See `example.py`. Requires `matplotlib`.
+
 # References
 [1] Minping, Qian, and Qian Min. "Circulation for recurrent Markov chains." Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 59.2 (1982): 203-210.
