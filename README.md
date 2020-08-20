@@ -1,5 +1,5 @@
 # CycFlowDec
-Cyclic Flow Decomposition Module
+Cyclic Flow Decomposition Python Module
 
 # Description
 Takes a flow matrix representing a closed, steady flow network and determines the cyclic flow decomposition according to cycles defined by Min-Ping Qian's decycling algorithm [1]. The algorithm here accomplishes decycling by percolating the network with starting from an arbitrary node, and then logging the simple cycles encountered. More information on the percolating algorithm can be found in reference [TBD].
