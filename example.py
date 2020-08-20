@@ -13,7 +13,7 @@ F[1,2] = 3
 n_points = 10
 init_steps = 20
 step_add = 10
-run_post = 1
+run_post = 2
 
 myCycFlowDec = CycFlowDec(F,0,0)
 myCycFlowDec.run(init_steps-run_post,run_post)
