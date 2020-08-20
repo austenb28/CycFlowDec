@@ -36,7 +36,7 @@ Class method for running percolating cyclic flow decomposition on `F`. Stores cy
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
 
-`nstep`: Integer. Number of steps to log cycles. The lower the better (e.g. 1. More may be required if `burnin` is too small. If the network only contains even cycles, then 2).
+`nstep`: Integer. Number of steps to log cycles. 2 is usually optimal, unless `burnin` is too small.
 
 ## `CycFlowDec.scale_cycles()`
 Scales cycle weights to flow values using the total network flow.
