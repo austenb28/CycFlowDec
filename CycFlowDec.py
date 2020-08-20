@@ -2,7 +2,7 @@ import numpy as np
 import copy
 
 class CycFlowDec:
-	def __init__(self,F,state,tol):
+	def __init__(self,F,state,tol,MRE_tol):
 		self.walks = [dict(),dict()]
 		self.walks[0][(state,)] = Walk(state,F.shape[0])
 		self.tick = 0
@@ -20,6 +20,7 @@ class CycFlowDec:
 		self.F = F
 		self.burnin = 0
 		self.tol = tol
+		self.MRE_tol = MRE_tol
 		self.alpha = -1
 		self.MRE = -1
 
@@ -103,7 +104,7 @@ class CycFlowDec:
 		for cycle in self.cycles:
 			self.cycles[cycle] *= self.alpha
 
-	def calc_MRE(self,tol):
+	def calc_MRE(self):
 		if self.alpha == -1:
 			self.scale_cycles()
 		cycle_sum = 0
@@ -111,7 +112,7 @@ class CycFlowDec:
 		N = 0
 		for j in range(self.S.shape[0]):
 			for k in range(self.S.shape[0]):
-				if (self.F[k,j] > tol):
+				if (self.F[k,j] > self.MRE_tol):
 					cycle_sum = 0
 					for cycle in self.cycles:
 						if self.cycle_has_edge(cycle,(j,k)):
