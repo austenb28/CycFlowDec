@@ -24,7 +24,7 @@ Include `from CycFlowDec import CycFlowDec` in your Python script. See the defin
 ## `CycFlowDec(F,state,tol)`
 Constructor of the CycFlowDec class.
 
-`F`: NumPy (*N* x *N*) array. Flow matrix of the network to decycle, where *N* is the number of network nodes.  The entry *F*[*m*,*n*] corresponds to the flow from node *n* to node *m*.
+`F`: NumPy (*N* x *N*) array. Flow matrix of the network to decycle, where *N* is the number of network nodes.  The entry *F[m,n]* corresponds to the flow from node *n* to node *m*.
 
 `state`: Integer. The arbitrary starting node for percolation.
 
