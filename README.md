@@ -7,6 +7,7 @@ Takes a flow matrix representing a closed, steady flow network and determines th
 # Requirements
 * Python3
 * NumPy library
+* MatPlotLib library (for example.py only)
 
 # Installation
 Download CycFlowDec.py and place it in your `$PYTHONPATH`.  On a Unix system, this can be accomplished by the following:
