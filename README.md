@@ -18,7 +18,7 @@ Place `CycFlowDec.py` in `~/python_modules`. Update your `~/.bashrc` to include
 `export PYTHONPATH="~/python_modules":$PYTHONPATH`.
 
 # Usage
-Include `from CycFlowDec import CycFlowDec` in your Python script. See definitions and example sections for specific usage hints.
+Include `from CycFlowDec import CycFlowDec` in your Python script. See the definitions section and `example.py` for specific usage hints.
 
 # Definitions
 ## `CycFlowDec(F,state,tol)`
