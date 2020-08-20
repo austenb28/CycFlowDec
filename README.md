@@ -18,9 +18,15 @@ Place `CycFlowDec.py` in `~/python_modules`. Update your `~/.bashrc` to include
 `export PYTHONPATH="~/python_modules":$PYTHONPATH`.
 
 # Usage
-1. Include `from CycFlowDec import CycFlowDec` in your Python script.  
+Include `from CycFlowDec import CycFlowDec` in your Python script. See definitions and example sections for specific usage hints.
 
-2. Instantiate the CycFlowDec class with `myCycFlowDec = CycFlowDec(F,state,tol)`.
+# Definitions
+`CycFlowDec(F,state,tol)`
+
+**Desciption**
+Constructor of the CycFlowDec class.
+
+**Arguments**
 
 `F`: NumPy (*N* x *N*) array. Flow matrix of the network to decycle, where *N* is the number of network nodes.  *F*[*m*,*n*] should correspond to the flow from node *n* to node *m*.
 
@@ -28,24 +34,30 @@ Place `CycFlowDec.py` in `~/python_modules`. Update your `~/.bashrc` to include
 
 `tol`: Float. The minimum contribution tolerance for walks to further percolate the network. Should be on the range \[0,1\]. For small networks (*N* ~< 6) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
 
-3. Execute `myCycFlowDec.run(burnin,nstep)`
+`CycFlowDec.run(burnin,nstep)`
 
 **Description**
 
-Runs cyclic flow decomposition on `F`.
+Class method for running cyclic flow decomposition on `F`. Stores cycles with weights in `CycFlowDec.cycles`.
 
-**Parameters**
+**Arguments**
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
 `nstep`: Integer. Number of steps to log cycles. The lower the better (e.g. 1. More may be required if burnin is too small. If the network only contains even cycles, then 2).
 
-4. Execute `myCycFlowDec.calc_MRE(tol)`
+`CycFlowDec.scale_cycles()`
+
+**Description**
+
+Scales cycle weights to flow values using the total network flow.
+
+`CycFlowDec.calc_MRE(tol)`
 
 **Description**
 
 Returns the mean relative error (MRE) of the decycled network flows with respect to the original network flows. Scales cycles weights to flow values with `CycFlowDec.scale_cycles()` if it hadn't been called previously.
 
-**Parameters**
+**Arguments**
 
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
