@@ -29,7 +29,7 @@ Constructor of the CycFlowDec class.
 
 `state`: Integer. The arbitrary starting node for percolation.
 
-`tol`: Float. The minimum contribution tolerance to extend percolation in the network. Should be on the range \[0,1\]. For small networks (*N* ~< 6) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
+`tol`: Float. The minimum contribution tolerance to extend percolation in the network. Should be on the range \[0,1\]. For small networks (*N* < ~6) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
 
 ## `CycFlowDec.run(burnin,nstep)`
 Class method for running percolating cyclic flow decomposition on `F`. Stores cycles with weights in `CycFlowDec.cycles`.
