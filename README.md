@@ -27,7 +27,7 @@ Constructor of the CycFlowDec class.
 
 `F`: NumPy (*N* x *N*) array. Flow matrix of the network to decycle, where *N* is the number of network nodes.  The entry *F[m,n]* corresponds to the flow from node *n* to node *m*.
 
-`state`: Integer. The arbitrary starting node for percolation.
+`state`: Integer. The starting node for percolation.
 
 `tol`: Float. The minimum contribution tolerance to extend percolation in the network. Should be on the range \[0,1\]. For small networks (*N* < ~6) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
 
