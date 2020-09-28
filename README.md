@@ -46,7 +46,7 @@ Returns the mean relative error (MRE) of the decycled network flows with respect
 
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
-# Example
+# Examples
 See `Examples` folder. Examples require `matplotlib`. Execute with `python <example.py>`.  Three node and seven node examples should complete instantly; 64 node example requires around 5 minutes.
 
 # References
