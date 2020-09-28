@@ -20,7 +20,7 @@ def save_data(header,columns,filename):
 	with open(filename,'w') as myfile:
 		myfile.write(''.join(bufflist))
 
-with open('../F.pickle','rb') as myfile:
+with open('F.pickle','rb') as myfile:
 	F = pickle.load(myfile)
 
 n_points = 10
