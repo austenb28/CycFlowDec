@@ -1,6 +1,7 @@
 import numpy as np
 import copy
 
+# Simple cycle flow decomposition class
 class CycFlowDec:
 	def __init__(self,F,state,tol):
 		self.walks = [dict(),dict()]
@@ -22,6 +23,8 @@ class CycFlowDec:
 		self.tol = tol
 		self.alpha = -1
 
+	# Run decomposition without cycle logging for burnin steps
+	# and then with cycle logging for nstep
 	def run(self,burnin,nstep):
 		self.cycles.clear()
 		self.alpha = -1
@@ -32,6 +35,8 @@ class CycFlowDec:
 			self.step()
 			j += 1
 
+	# Perform one percolation step from self.walks[self.tick]
+	# to self.walks[self.opp_tick]
 	def step(self):
 		for path,walk in self.walks[self.opp_tick].items():
 			walk.flow = 0
@@ -53,6 +58,8 @@ class CycFlowDec:
 		if self.burnin > 0:
 			self.burnin -= 1
 
+	# Update self.walk[self.opp_tick] and self.cycles given a state to append
+	# to walk with a correpsonding path
 	def progress_walk(self,path,walk,state):
 		p = self.S[state,path[-1]]
 		next_flow = walk.flow * p
@@ -81,26 +88,32 @@ class CycFlowDec:
 				next_walk = copy.deepcopy(walk)
 				next_walk.add(state,next_flow)
 				self.walks[self.opp_tick][path] = next_walk
-	
+
+	# Swap self.tick and self.opp_tick
 	def swap_ticks(self):
 		if self.tick == 0:
-			self.tick += 1
-			self.opp_tick -= 1
+			self.tick = 1
+			self.opp_tick = 0
 		else:
-			self.tick -= 1
-			self.opp_tick += 1
+			self.tick = 0
+			self.opp_tick = 1
 
+	# Calculate self.alpha for scaling self.cycles to match the
+	# self.F
 	def calc_alpha(self):
 		cycle_sum = 0
 		for cycle in self.cycles:
 			cycle_sum += len(cycle) * self.cycles[cycle]
 		self.alpha = np.sum(self.F)/cycle_sum
 
+	# Scale self.cycles to match self.F
 	def scale_cycles(self):
 		self.calc_alpha()
 		for cycle in self.cycles:
 			self.cycles[cycle] *= self.alpha
 
+	# Return the edge-wise mean relative error (MRE) of self.cycles
+	# and self.F
 	def calc_MRE(self,tol):
 		SRE = 0
 		if self.alpha == -1:
@@ -120,7 +133,8 @@ class CycFlowDec:
 					)/self.F[k,j]
 					N += 1
 		return SRE/N
-
+	
+	# Return True if cycle has edge, False otherwise
 	def cycle_has_edge(self,cycle,edge):
 		N = len(cycle)
 		for j in range(N-1):
@@ -134,18 +148,22 @@ class CycFlowDec:
 			return True
 		return False
 
+# Walk stack information class
 class Walk:
 	def __init__(self,state):
 		self.visited = dict() # indices
 		self.visited[state] = 0
 		self.flow = 1
 		self.N = 1
-
+	
+	# Add state with flow to self
 	def add(self,state,flow):
 		self.visited[state] = self.N
 		self.flow = flow
 		self.N += 1
 
+	# Return the cycle from the previous visitation of
+	# state on path
 	def get_cycle(self,path,state):
 		index = self.visited[state]
 		mindex = (
