@@ -113,7 +113,7 @@ class CycFlowDec:
 			self.cycles[cycle] *= self.alpha
 
 	# Return the edge-wise mean relative error (MRE) of self.cycles
-	# and self.F
+	# and self.F for edges greater than tol
 	def calc_MRE(self,tol):
 		SRE = 0
 		if self.alpha == -1:
