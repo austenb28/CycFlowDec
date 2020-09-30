@@ -4,7 +4,7 @@ import copy
 class CycFlowDec:
 	def __init__(self,F,state,tol):
 		self.walks = [dict(),dict()]
-		self.walks[0][(state,)] = Walk(state,F.shape[0])
+		self.walks[0][(state,)] = Walk(state)
 		self.tick = 0
 		self.opp_tick = 1
 		self.cycles = dict()
@@ -135,7 +135,7 @@ class CycFlowDec:
 		return False
 
 class Walk:
-	def __init__(self,state,n_states):
+	def __init__(self,state):
 		self.visited = dict() # indices
 		self.visited[state] = 0
 		self.flow = 1
