@@ -47,7 +47,9 @@ Returns the mean relative error (MRE) of the decycled network flows with respect
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
 # Examples
-See `Examples` folder. Examples require `matplotlib`. Execute with `python <example.py>`.  Three node and seven node examples should complete instantly; 64 node example requires around 5 minutes.
+See `Examples` folder. Examples require `matplotlib`. Execute with `python <example.py>`.  Three node and seven node examples should complete instantly; 64 node example requires around 5 minutes. The 64 node example is a Markov state model network instance of a Cl<sup>-</sup>/H<sup>+</sup> antiporter [2].
 
 # References
 [1] Minping, Qian, and Qian Min. "Circulation for recurrent Markov chains." Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 59.2 (1982): 203-210.
+
+[2] Mayes, Heather B., et al. "Multiscale kinetic modeling reveals an ensemble of Cl–/H+ exchange pathways in ClC-ec1 antiporter." Journal of the American Chemical Society 140.5 (2018): 1793-1804.
