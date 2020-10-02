@@ -2,7 +2,7 @@
 Simple Cycle Flow Decomposition Python Module
 
 # Description
-Takes a flow matrix representing a closed flow network and determines the simple cycle flow decomposition consistent with Min-Ping Qian's decycling algorithm [1]. This is accomplished by percolating the network from a starting node, and then logging the simple cycles encountered. More information on the percolating algorithm can be found in reference [TBD].
+Takes a flow matrix representing a closed flow network and determines the simple cycle flow decomposition consistent with Min-Ping Qian's decycling algorithm [1],[2]. This is accomplished by percolating the network from a starting node, and then logging the simple cycles encountered. More information on the percolating algorithm can be found in reference [TBD].
 
 # Requirements
 * Python3
@@ -47,9 +47,11 @@ Returns the mean relative error (MRE) of the decycled network flows with respect
 `tol`: Float. Minimum flow tolerance for edges to contribute to the MRE calculation.
 
 # Examples
-See `Examples` folder. Examples require `matplotlib`. Execute with `python <example.py>`.  Three node and seven node examples should complete instantly; 64 node example requires around 5 minutes. The 64 node example is a Markov state model network instance of a Cl<sup>-</sup>/H<sup>+</sup> antiporter [2].
+See `Examples` folder. Examples require `matplotlib`. Execute with `python <example.py>`.  Three node and seven node examples should complete instantly; 64 node example requires around 5 minutes. The 64 node example is a Markov state model network instance of a Cl<sup>-</sup>/H<sup>+</sup> antiporter [3].
 
 # References
 [1] Minping, Qian, and Qian Min. "Circulation for recurrent Markov chains." Zeitschrift für Wahrscheinlichkeitstheorie und Verwandte Gebiete 59.2 (1982): 203-210.
 
-[2] Mayes, Heather B., et al. "Multiscale kinetic modeling reveals an ensemble of Cl–/H+ exchange pathways in ClC-ec1 antiporter." Journal of the American Chemical Society 140.5 (2018): 1793-1804.
+[2] Kalpazidou, Sophia L. Cycle representations of Markov processes. Vol. 28. Springer Science & Business Media, 2007.
+
+[3] Mayes, Heather B., et al. "Multiscale kinetic modeling reveals an ensemble of Cl–/H+ exchange pathways in ClC-ec1 antiporter." Journal of the American Chemical Society 140.5 (2018): 1793-1804.
