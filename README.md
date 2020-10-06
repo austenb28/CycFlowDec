@@ -36,7 +36,7 @@ Runs percolating cyclic flow decomposition on `F`. Stores cycles with unscaled w
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
 
-`nstep`: Integer. Number of steps to log cycles. Small, even numbers are generally optimal, such as 2 or 4.
+`nstep`: Integer. Number of steps to log cycles. Small, even numbers are often optimal, such as 2 or 4.
 
 ## `CycFlowDec.scale_cycles()`
 Scales cycle weights to flow values using the total network flow.
