@@ -39,7 +39,7 @@ Runs percolating cyclic flow decomposition on `F`. Stores cycles as keys in the 
 `nstep`: Integer. Number of steps to log cycles. Small, even numbers are often optimal, such as 2 or 4.
 
 ## `CycFlowDec.scale_cycles()`
-Scales cycle weights to flow values using the total network flow.
+Scales cycle weights to flow values in `CycFlowDec.cycles` using the total network flow.
 
 ## `CycFlowDec.calc_MRE(tol)`
 Returns the mean relative error (MRE) of the decycled network flows with respect to the original network flows. Scales cycles weights to flow values with `CycFlowDec.scale_cycles()` if it hadn't been called previously.
