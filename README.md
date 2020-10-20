@@ -32,7 +32,7 @@ Constructor of the CycFlowDec class.
 `tol`: Float. The minimum contribution tolerance to extend percolation in the network. Should be on the range \[0,1\]. For small networks (*N* < ~7) `tol=0` should be fine.  For larger networks, `tol` can be be increased to accelerate percolation at the cost of maximum achievable accuracy.
 
 ## `CycFlowDec.run(burnin,nstep)`
-Runs percolating cyclic flow decomposition on `F`. Stores cycles as keys in the dictionary `CycFlowDec.cycles`, whose items correspond to the unscaled cycle weights. Cycles are defined as tuples, with the first node in the tuple being the lowest index node in the cycle.
+Runs percolating cyclic flow decomposition on `F`. Stores cycles as keys in the dictionary `CycFlowDec.cycles`, whose items correspond to the unscaled cycle weights. Cycles are defined as tuples, where the first node is the lowest index node in the cycle.
 
 `burnin`: Integer. Number of steps to equilibrate percolation.
 
