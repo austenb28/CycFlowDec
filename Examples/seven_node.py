@@ -2,23 +2,6 @@ from CycFlowDec import CycFlowDec
 import numpy as np
 import matplotlib.pyplot as plt
 
-def save_data(header,columns,filename):
-	bufflist = []
-	delimiter = '\t'
-	linebreak = '\n'
-	for field in header:
-		bufflist.append(field)
-		bufflist.append(delimiter)
-	bufflist.append(linebreak)
-	row_vec = range(len(columns[0]))
-	for j in row_vec:
-		for column in columns:
-			bufflist.append("{:e}".format(column[j]))
-			bufflist.append(delimiter)
-		bufflist.append(linebreak)
-	with open(filename,'w') as myfile:
-		myfile.write(''.join(bufflist))
-
 F = np.zeros([7,7])
 F[1,0] = 4
 F[6,0] = 1
@@ -65,12 +48,6 @@ for cycle in myCycFlowDec.cycles.keys():
 		str(cycle),
 		myCycFlowDec.cycles[cycle]
 	))
-
-save_data(
-	('Steps','MRE'),
-	(steps,MREs),
-	'MREs.dat'
-)
 
 plt.xlabel('Steps')
 plt.ylabel('MRE')
