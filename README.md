@@ -2,7 +2,7 @@
 Simple Cycle Flow Decomposition Python Module (Version 1.0)
 
 # Description
-Takes a flow matrix representing a closed flow network and determines the simple cycle flow decomposition consistent with Min-Ping Qian's decycling algorithm [1],[2]. This is accomplished by percolating the network from a starting node, and then logging the simple cycles encountered. More information on the percolating algorithm can be found in reference [TBD].
+Takes a flow matrix representing a closed flow network and determines the simple cycle flow decomposition consistent with Min-Ping Qian's decycling algorithm [1],[2]. This is accomplished by percolating the network from a starting node, and then logging the simple cycles encountered. More information can be found in reference [TBD].
 
 # Requirements
 * Python3
