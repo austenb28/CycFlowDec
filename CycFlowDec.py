@@ -12,7 +12,9 @@ class CycFlowDec:
 		self.S = np.zeros([F.shape[0],F.shape[0]])
 		self.A = []
 		for j in range(F.shape[0]):
-			self.S[:,j] = (F[:,j]/np.sum(F[:,j]))
+			s = np.sum(F[:,j])
+			if s != 0:
+				self.S[:,j] = F[:,j]/s
 			adj = []
 			for k in range(F.shape[0]):
 				if(F[k,j] > 0):
@@ -59,7 +61,7 @@ class CycFlowDec:
 			self.burnin -= 1
 
 	# Update self.walk[self.opp_tick] and self.cycles given a state to append
-	# to walk with a correpsonding path
+	# to walk with a corresponding path
 	def progress_walk(self,path,walk,state):
 		p = self.S[state,path[-1]]
 		next_flow = walk.flow * p
